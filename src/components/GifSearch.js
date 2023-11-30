@@ -7,7 +7,7 @@ function GifSearch({submit}) {
 
     const [search, setSearch] = useState("");
 
-    const handleSearch = (e) => {
+    const handleInput = (e) => {
         setSearch(e.target.value);
     }
     const handleSubmit = (e)=> {
@@ -21,15 +21,15 @@ function GifSearch({submit}) {
   return (
 
     <>
-    <form onSubmit={handleSubmit}>
+  
 
     <input type="text" 
         placeholder="Search Gifs" 
         value={search} 
-        onChange={handleSearch}
+        onChange={handleInput}
     />
-    <button type='submit'>Search</button>
-    </form>
+    <button onClick={handleSubmit}>Search</button>
+
    
     
     </>

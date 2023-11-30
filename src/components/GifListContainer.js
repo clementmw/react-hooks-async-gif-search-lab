@@ -5,6 +5,7 @@ import GifSearch from './GifSearch'
 
 function GifListContainer() {
     const [products, setproducts] = useState([])
+    const [filteredItem, setFilteredItem]= useState([])
     useEffect (()=> {
         fetch("https://api.escuelajs.co/api/v1/products")
         .then(res => res.json())
@@ -22,8 +23,12 @@ function GifListContainer() {
     )
    })
    const handleSubmit = (searchTerm) => {
-          console.log(searchTerm)
-   }
+        const filtered = products.filter((product)=> product.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
+        setFilteredItem(filtered);
+        setproducts(filtered);
+        console.log(searchTerm)
+   };
 
   
    
